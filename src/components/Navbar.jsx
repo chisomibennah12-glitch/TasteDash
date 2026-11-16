@@ -34,7 +34,11 @@ function Navbar({ cartCount = 0, favoritesCount = 0, isDark = false, onToggleThe
           className={`nav-favorites-link ${location.pathname === '/favorites' ? 'active-link' : ''}`}
           onClick={closeMenu}
         >
-          <Heart size={16} fill={favoritesCount > 0 ? 'currentColor' : 'none'} />
+          <Heart
+            size={16}
+            fill={favoritesCount > 0 ? '#EF4444' : 'none'}
+            color={favoritesCount > 0 ? '#EF4444' : 'currentColor'}
+          />
           Favorites
           {favoritesCount > 0 && <span className="nav-badge">{favoritesCount}</span>}
         </Link>
@@ -54,6 +58,17 @@ function Navbar({ cartCount = 0, favoritesCount = 0, isDark = false, onToggleThe
         </Link>
         <a href="/#about" onClick={closeMenu}>About</a>
         <a href="/#contact" onClick={closeMenu}>Contact</a>
+
+        <div className="mobile-drawer-footer">
+          <button
+            type="button"
+            className="drawer-theme-btn"
+            onClick={onToggleTheme}
+          >
+            {isDark ? <Sun size={17} className="theme-icon sun" /> : <Moon size={17} className="theme-icon moon" />}
+            <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>
+          </button>
+        </div>
       </nav>
 
       <div className="navbar-actions">
@@ -64,25 +79,39 @@ function Navbar({ cartCount = 0, favoritesCount = 0, isDark = false, onToggleThe
           aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         >
-          {isDark ? <Sun size={19} className="theme-icon sun" /> : <Moon size={19} className="theme-icon moon" />}
+          {isDark ? <Sun size={18} className="theme-icon sun" /> : <Moon size={18} className="theme-icon moon" />}
         </button>
 
-        <Link to="/favorites" className="mobile-favorites-btn" title="View favorites">
-          <Heart size={19} fill={favoritesCount > 0 ? 'currentColor' : 'none'} />
+        <Link
+          to="/favorites"
+          className="mobile-favorites-btn"
+          title="View saved favorites"
+          aria-label={`Favorites, ${favoritesCount} items`}
+        >
+          <Heart
+            size={18}
+            fill={favoritesCount > 0 ? '#EF4444' : 'none'}
+            color={favoritesCount > 0 ? '#EF4444' : 'currentColor'}
+          />
           {favoritesCount > 0 && <span className="nav-badge">{favoritesCount}</span>}
         </Link>
 
-        <Link to="/cart" className="cart-button">
-          <ShoppingCart size={18} />
-          <span>Cart ({cartCount})</span>
+        <Link
+          to="/cart"
+          className="cart-button"
+          aria-label={`View Cart, ${cartCount} items`}
+        >
+          <ShoppingCart size={17} />
+          <span className="cart-text">Cart ({cartCount})</span>
+          <span className="cart-text-mobile">({cartCount})</span>
         </Link>
 
         <button
           className="menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation"
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
         >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
     </header>

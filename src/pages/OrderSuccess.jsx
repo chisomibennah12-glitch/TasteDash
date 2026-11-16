@@ -21,7 +21,7 @@ function OrderSuccess() {
 
         <p>
           Your order has been recorded successfully.
-          We appreciate you choosing QuickBite.
+          We appreciate you choosing TasteDash.
         </p>
 
         <div className="success-reference">

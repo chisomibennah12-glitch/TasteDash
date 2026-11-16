@@ -63,7 +63,7 @@ function AdminDashboard({ orders, setOrders }) {
     <div className="admin-layout">
       <aside className="admin-sidebar">
         <Link to="/admin" className="admin-logo">
-          QuickBite<span>.</span>
+          TasteDash<span>.</span>
           <small>ADMIN PANEL</small>
         </Link>
 

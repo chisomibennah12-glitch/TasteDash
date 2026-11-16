@@ -141,7 +141,7 @@ function AdminMenu({ foods, setFoods }) {
     <main className="admin-page">
       <aside className="admin-sidebar">
         <div className="admin-brand">
-          QuickBite<span>.</span>
+          TasteDash<span>.</span>
           <small>ADMINISTRATION</small>
         </div>
 
@@ -158,7 +158,7 @@ function AdminMenu({ foods, setFoods }) {
         </nav>
 
         <div className="admin-sidebar-bottom">
-          <span>QuickBite Management</span>
+          <span>TasteDash Management</span>
           <Link to="/">Return to Website</Link>
         </div>
       </aside>

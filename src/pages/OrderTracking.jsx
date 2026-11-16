@@ -35,7 +35,7 @@ function OrderTracking({ orders }) {
       <div className="tracking-heading">
         <span className="eyebrow">ORDER PROGRESS</span>
         <h1>Track Your Order</h1>
-        <p>Follow the progress of your QuickBite order.</p>
+        <p>Follow the progress of your TasteDash order in real time.</p>
       </div>
 
       <section className="tracking-order-summary">

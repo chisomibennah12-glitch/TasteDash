@@ -1,16 +1,39 @@
-# React + Vite
+# TasteDash 🍔 🍕 ⚡
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TasteDash** is a modern food delivery web application built with React, Vite, and React Router. Featuring delicious Nigerian delicacies, gourmet burgers, artisan pizza, pasta, refreshing drinks, and desserts delivered fast.
 
-Currently, two official plugins are available:
+## ✨ New Features & Enhancements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 🏷️ **Brand Identity**: Rebranded from QuickBite to **TasteDash**.
+- 🔔 **Toast Notification System**: Replaced native browser `alert()` popups with animated, auto-dismissing toast notifications for cart actions, reviews, and favorites.
+- ❤️ **Favorites / Wishlist System**:
+  - Heart toggle on food cards and meal detail pages.
+  - Dedicated `/favorites` page with empty states and clear-all support.
+  - Navbar badge counter and quick access.
+- ⭐ **Customer Reviews & Star Ratings**:
+  - Dynamic star ratings and review counts on every food card.
+  - Interactive "Leave a Review" form with 1–5 clickable stars and instant feedback.
+  - LocalStorage persistence per meal.
+- 🌶️ **Dietary & Spice Filters**:
+  - Filter chips for **All**, **⭐ Chef's Picks**, **🌶️ Spicy**, and **🥬 Vegetarian**.
+  - Sort dropdown: Recommended, Top Rated, Price: Low to High, Price: High to Low.
+- 🎟️ **Promo Code & Coupon System**:
+  - Apply codes like `TASTEDASH10` (10% discount) or `FIRSTBITE` (15% discount) at checkout.
+- 🌓 **Dark / Light Mode Toggle**:
+  - Seamless theme switcher in the navigation bar with full theme styling and localStorage persistence.
 
-## React Compiler
+## 🚀 Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# Install dependencies
+npm install
 
-## Expanding the ESLint configuration
+# Run local development server
+npm run dev
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Build for production
+npm run build
+
+# Run linting
+npm run lint
+```

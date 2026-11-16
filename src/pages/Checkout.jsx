@@ -1,26 +1,51 @@
-
+/* eslint-disable react-hooks/purity */
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Tag, CheckCircle2 } from 'lucide-react'
+import { useToast } from '../context/ToastContext'
 
 function Checkout({ cartItems, setCartItems, addOrder }) {
   const navigate = useNavigate()
+  const { showToast } = useToast()
 
   const [paymentMethod, setPaymentMethod] = useState('Cash on Delivery')
+  const [couponCode, setCouponCode] = useState('')
+  const [discountPercent, setDiscountPercent] = useState(0)
+  const [appliedCoupon, setAppliedCoupon] = useState('')
 
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   )
 
+  const discountAmount = Math.round((subtotal * discountPercent) / 100)
   const deliveryFee = cartItems.length > 0 ? 1000 : 0
-  const total = subtotal + deliveryFee
+  const total = Math.max(0, subtotal - discountAmount + deliveryFee)
+
+  const handleApplyCoupon = (e) => {
+    e.preventDefault()
+    const cleanCode = couponCode.trim().toUpperCase()
+
+    if (cleanCode === 'TASTEDASH10') {
+      setDiscountPercent(10)
+      setAppliedCoupon('TASTEDASH10 (10% OFF)')
+      showToast('Promo code TASTEDASH10 applied successfully! 10% saved.', 'success')
+      setCouponCode('')
+    } else if (cleanCode === 'FIRSTBITE' || cleanCode === 'CHOP15') {
+      setDiscountPercent(15)
+      setAppliedCoupon(`${cleanCode} (15% OFF)`)
+      showToast(`Promo code ${cleanCode} applied! 15% discount granted.`, 'success')
+      setCouponCode('')
+    } else {
+      showToast('Invalid or expired promo code. Try TASTEDASH10!', 'error')
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
     const formData = new FormData(e.currentTarget)
-
-    const orderNumber = `QB-${Date.now()}`
+    const orderNumber = `TD-${Date.now()}`
 
     const order = {
       id: orderNumber,
@@ -34,6 +59,8 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
       items: cartItems,
       paymentMethod,
       subtotal,
+      discountAmount,
+      appliedCoupon,
       deliveryFee,
       total,
       status: 'Order Received',
@@ -42,6 +69,7 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
 
     addOrder(order)
     setCartItems([])
+    showToast('Your TasteDash order has been placed!', 'success')
 
     navigate('/order-success', {
       state: { order }
@@ -53,7 +81,7 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
       <main className="checkout-page">
         <div className="empty-cart">
           <h1>Your cart is empty</h1>
-          <p>Add some meals before proceeding to checkout.</p>
+          <p>Add some delicious meals before proceeding to checkout.</p>
           <Link to="/menu" className="primary-button">
             Explore Menu
           </Link>
@@ -65,9 +93,9 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
   return (
     <main className="checkout-page">
       <div className="checkout-heading">
-        <span className="eyebrow">ALMOST THERE</span>
+        <span className="eyebrow">FINAL STEP</span>
         <h1>Checkout</h1>
-        <p>Enter your details to complete your order.</p>
+        <p>Enter your delivery details to complete your TasteDash order.</p>
       </div>
 
       <form className="checkout-layout" onSubmit={handleSubmit}>
@@ -116,20 +144,20 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
                 id="address"
                 name="address"
                 rows="3"
-                placeholder="Enter your complete delivery address"
+                placeholder="Enter your complete delivery address, apartment or office number"
                 required
               />
             </div>
 
             <div className="form-group">
               <label htmlFor="notes">
-                Additional Instructions (Optional)
+                Delivery Instructions (Optional)
               </label>
               <textarea
                 id="notes"
                 name="notes"
                 rows="2"
-                placeholder="Any special delivery instructions?"
+                placeholder="Gate code, landmark, or special delivery instructions"
               />
             </div>
           </div>
@@ -147,7 +175,7 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
               />
               <span>
                 <strong>Cash on Delivery</strong>
-                <small>Pay when your order arrives.</small>
+                <small>Pay cash or POS upon food arrival.</small>
               </span>
             </label>
 
@@ -160,9 +188,9 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
                 onChange={(e) => setPaymentMethod(e.target.value)}
               />
               <span>
-                <strong>Bank Transfer</strong>
+                <strong>Bank Transfer / Online</strong>
                 <small>
-                  Transfer instructions will be provided separately.
+                  Secure bank transfer on delivery confirmation.
                 </small>
               </span>
             </label>
@@ -170,7 +198,7 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
         </section>
 
         <aside className="checkout-summary">
-          <h2>Your Order</h2>
+          <h2>Order Summary</h2>
 
           <div className="checkout-order-items">
             {cartItems.map((item) => (
@@ -179,7 +207,7 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
 
                 <div>
                   <strong>{item.name}</strong>
-                  <span>Quantity: {item.quantity}</span>
+                  <span>Qty: {item.quantity}</span>
                 </div>
 
                 <strong>
@@ -189,10 +217,46 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
             ))}
           </div>
 
+          {/* Coupon Code Section */}
+          <div className="coupon-box">
+            <label htmlFor="couponInput">
+              <Tag size={14} style={{ display: 'inline', marginRight: 4 }} />
+              Have a Promo Code?
+            </label>
+            <div className="coupon-input-row">
+              <input
+                id="couponInput"
+                type="text"
+                placeholder="e.g. TASTEDASH10"
+                value={couponCode}
+                onChange={(e) => setCouponCode(e.target.value)}
+              />
+              <button
+                type="button"
+                className="coupon-apply-btn"
+                onClick={handleApplyCoupon}
+              >
+                Apply
+              </button>
+            </div>
+            {appliedCoupon && (
+              <div className="coupon-applied-tag">
+                <CheckCircle2 size={14} /> Applied: {appliedCoupon}
+              </div>
+            )}
+          </div>
+
           <div className="summary-row">
             <span>Subtotal</span>
             <span>₦{subtotal.toLocaleString()}</span>
           </div>
+
+          {discountAmount > 0 && (
+            <div className="summary-row discount-row">
+              <span>Discount</span>
+              <span>-₦{discountAmount.toLocaleString()}</span>
+            </div>
+          )}
 
           <div className="summary-row">
             <span>Delivery Fee</span>
@@ -207,7 +271,7 @@ function Checkout({ cartItems, setCartItems, addOrder }) {
           </div>
 
           <button type="submit" className="checkout-button">
-            Place Order
+            Place Order • ₦{total.toLocaleString()}
           </button>
 
           <Link to="/cart" className="continue-shopping">

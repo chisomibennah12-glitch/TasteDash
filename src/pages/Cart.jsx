@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
-import { Plus, Minus, Trash2, ShoppingBag } from 'lucide-react'
+import { Plus, Minus, Trash2, ShoppingBag, ArrowRight, Heart } from 'lucide-react'
+import { useToast } from '../context/ToastContext'
 
 function Cart({ cartItems, setCartItems }) {
+  const { showToast } = useToast()
+
   const updateQuantity = (id, amount) => {
     setCartItems((currentItems) =>
       currentItems
@@ -14,10 +17,11 @@ function Cart({ cartItems, setCartItems }) {
     )
   }
 
-  const removeItem = (id) => {
+  const removeItem = (item) => {
     setCartItems((currentItems) =>
-      currentItems.filter((item) => item.id !== id)
+      currentItems.filter((i) => i.id !== item.id)
     )
+    showToast(`Removed ${item.name} from cart.`, 'info')
   }
 
   const subtotal = cartItems.reduce(
@@ -32,18 +36,23 @@ function Cart({ cartItems, setCartItems }) {
     return (
       <main className="cart-page">
         <div className="empty-cart">
-          <ShoppingBag size={48} />
+          <ShoppingBag size={52} />
 
           <h1>Your cart is empty</h1>
 
           <p>
             You haven't added anything to your cart yet.
-            Explore our menu and find something delicious.
+            Explore our delicious menu or check your saved favorites!
           </p>
 
-          <Link to="/menu" className="primary-button">
-            Explore Menu
-          </Link>
+          <div className="empty-cart-actions">
+            <Link to="/menu" className="primary-button">
+              Explore Menu <ArrowRight size={17} />
+            </Link>
+            <Link to="/favorites" className="secondary-button">
+              <Heart size={16} /> Saved Favorites
+            </Link>
+          </div>
         </div>
       </main>
     )
@@ -52,7 +61,7 @@ function Cart({ cartItems, setCartItems }) {
   return (
     <main className="cart-page">
       <div className="cart-heading">
-        <span className="eyebrow">YOUR ORDER</span>
+        <span className="eyebrow">YOUR TASTEDASH ORDER</span>
         <h1>Shopping Cart</h1>
         <p>Review your selected meals before checkout.</p>
       </div>
@@ -67,12 +76,11 @@ function Cart({ cartItems, setCartItems }) {
                 <span>{item.category}</span>
                 <h3>{item.name}</h3>
 
-                <strong>
-                  ₦{item.price.toLocaleString()}
-                </strong>
+                <strong>₦{item.price.toLocaleString()}</strong>
 
                 <div className="quantity-control">
                   <button
+                    type="button"
                     onClick={() => updateQuantity(item.id, -1)}
                     aria-label={`Decrease ${item.name} quantity`}
                   >
@@ -82,6 +90,7 @@ function Cart({ cartItems, setCartItems }) {
                   <span>{item.quantity}</span>
 
                   <button
+                    type="button"
                     onClick={() => updateQuantity(item.id, 1)}
                     aria-label={`Increase ${item.name} quantity`}
                   >
@@ -96,12 +105,13 @@ function Cart({ cartItems, setCartItems }) {
                 </strong>
 
                 <button
+                  type="button"
                   className="remove-item"
-                  onClick={() => removeItem(item.id)}
-                  aria-label={`Remove ${item.name}`}
+                  onClick={() => removeItem(item)}
+                  aria-label={`Remove ${item.name} from cart`}
+                  title="Remove item"
                 >
-                  <Trash2 size={17} />
-                  Remove
+                  <Trash2 size={16} />
                 </button>
               </div>
             </article>
@@ -113,18 +123,18 @@ function Cart({ cartItems, setCartItems }) {
 
           <div className="summary-row">
             <span>Subtotal</span>
-            <span>₦{subtotal.toLocaleString()}</span>
+            <strong>₦{subtotal.toLocaleString()}</strong>
           </div>
 
           <div className="summary-row">
-            <span>Delivery Fee</span>
-            <span>₦{deliveryFee.toLocaleString()}</span>
+            <span>Estimated Delivery Fee</span>
+            <strong>₦{deliveryFee.toLocaleString()}</strong>
           </div>
 
-          <div className="summary-divider"></div>
+          <div className="summary-divider" />
 
           <div className="summary-total">
-            <strong>Total</strong>
+            <span>Total</span>
             <strong>₦{total.toLocaleString()}</strong>
           </div>
 

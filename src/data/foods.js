@@ -1,4 +1,3 @@
-
 const foods = [
   // NIGERIAN MEALS
   {
@@ -7,7 +6,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 3500,
     image: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600',
-    description: 'Delicious Nigerian party jollof rice.'
+    description: 'Delicious authentic Nigerian party jollof rice served hot and smoky.',
+    rating: 4.9,
+    reviewsCount: 78,
+    isSpicy: true,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '20-25 mins'
   },
   {
     id: 2,
@@ -15,7 +20,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 4000,
     image: 'https://cheflolaskitchen.com/wp-content/uploads/2015/06/Fried-Rice-20.jpg.webp',
-    description: 'Nigerian fried rice with vegetables and seasoning.'
+    description: 'Nigerian fried rice with fresh vegetables, liver, and rich seasoning.',
+    rating: 4.8,
+    reviewsCount: 52,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '20-25 mins'
   },
   {
     id: 3,
@@ -23,7 +34,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 4500,
     image: 'https://wunmiselectivekitchen.com/storage/2024/03/wsk14.jpg',
-    description: 'Local ofada rice served with traditional pepper sauce.'
+    description: 'Local unpolished aromatic ofada rice served with traditional ayamase pepper sauce.',
+    rating: 4.9,
+    reviewsCount: 64,
+    isSpicy: true,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '25-30 mins'
   },
   {
     id: 4,
@@ -31,7 +48,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 4000,
     image: 'https://cimages.timbu.com/guides/2017/03/informatin-nigeria-amala.jpeg',
-    description: 'Soft amala served with ewedu, gbegiri and stew.'
+    description: 'Soft fluffy amala served with ewedu, gbegiri, and rich assorted meat stew.',
+    rating: 4.9,
+    reviewsCount: 91,
+    isSpicy: true,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '15-20 mins'
   },
   {
     id: 5,
@@ -39,7 +62,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 5000,
     image: 'https://www.peppera.app/generated/landing/recipe-egusi-pounded-yam.webp',
-    description: 'Fresh pounded yam served with rich egusi soup.'
+    description: 'Fresh smooth pounded yam served with rich melon egusi soup and tender meats.',
+    rating: 4.9,
+    reviewsCount: 83,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '20-25 mins'
   },
   {
     id: 6,
@@ -47,7 +76,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 4500,
     image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Egusi_soup_and_Eba.jpg?width=600',
-    description: 'Hot eba served with delicious Nigerian egusi soup.'
+    description: 'Hot garri eba served with delicious Nigerian egusi soup and stockfish.',
+    rating: 4.7,
+    reviewsCount: 41,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '15-20 mins'
   },
   {
     id: 7,
@@ -55,7 +90,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 5000,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxlXPjzMj-rx508nYCFuERtfBexnqyjGcxcPs8An924A&s',
-    description: 'Traditional pounded yam served with Oha soup.'
+    description: 'Traditional pounded yam served with fresh fragrant Oha leaf soup.',
+    rating: 4.8,
+    reviewsCount: 39,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '20-25 mins'
   },
   {
     id: 9,
@@ -63,7 +104,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 4500,
     image: 'https://cimages.timbu.com/guides/2017/03/informatin-nigeria-amala.jpeg',
-    description: 'Amala served with gbegiri, ewedu and tasty stew.'
+    description: 'Classic piping hot amala paired with yellow bean gbegiri and ewedu soup.',
+    rating: 4.8,
+    reviewsCount: 37,
+    isSpicy: true,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '15-20 mins'
   },
   {
     id: 10,
@@ -71,7 +118,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 4500,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm-gOrwifD14Jy3uw5sYvz-jTDIXNWREg0ZnI6vWiEK2jAyuCAz5PSm9A&s=10',
-    description: 'Smooth semolina served with rich ogbono soup.'
+    description: 'Smooth semolina swallow served with rich, flavorful draw ogbono soup.',
+    rating: 4.6,
+    reviewsCount: 29,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '15-20 mins'
   },
   {
     id: 11,
@@ -79,7 +132,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 4000,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAMXBJApkbjdt9qlM_tQ9xcRI5TA4fN7OOR5UlynQ7119WMjV-lil75CXe&s=10',
-    description: 'Eba served with fresh okra soup.'
+    description: 'Hot eba served with fresh chopped okra soup, dry fish, and prawns.',
+    rating: 4.7,
+    reviewsCount: 33,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '15-20 mins'
   },
   {
     id: 12,
@@ -87,7 +146,13 @@ const foods = [
     category: 'Nigerian Meals',
     price: 3500,
     image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSFkIkIopuXKI451b_7l_xuW7bRdBCMUhJVZm_xI5wYQVfNst2s',
-    description: 'Well-cooked beans served with sweet fried plantain.'
+    description: 'Slow-cooked honey beans served with sweet golden fried ripe plantains (dodo).',
+    rating: 4.8,
+    reviewsCount: 67,
+    isSpicy: false,
+    isVeg: true,
+    isChefSpecial: false,
+    prepTime: '15-20 mins'
   },
   {
     id: 13,
@@ -95,127 +160,217 @@ const foods = [
     category: 'Nigerian Meals',
     price: 3000,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmJKAhKUP1bWKNZ6BbnhIg1sYB-eOZ9UTIyaUgMLhS-ahLcMonTtDEr2Q&s=10',
-    description: 'Boiled yam served with freshly prepared egg sauce.'
+    description: 'Tender boiled white yam served with freshly prepared spicy garden egg sauce.',
+    rating: 4.7,
+    reviewsCount: 45,
+    isSpicy: true,
+    isVeg: true,
+    isChefSpecial: false,
+    prepTime: '15-20 mins'
   },
   {
     id: 14,
-    name: 'Pepper Soup',
+    name: 'Catfish Pepper Soup',
     category: 'Nigerian Meals',
     price: 5000,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdNlbiEu3IMX0gKlqzyNbDYVEQceLY5FQ9VryQndR_G9_mgKbj02ygHoS544HCgd-1Dq6Dn1xbKuuqF83i1N_CLbhMskyDEuVdjnxz_qM&s=10',
-    description: 'Hot and spicy Nigerian-style pepper soup.'
+    description: 'Fiery, aromatic Nigerian-style fresh catfish pepper soup with traditional herbs.',
+    rating: 4.9,
+    reviewsCount: 82,
+    isSpicy: true,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '20-25 mins'
   },
 
   // BURGERS
   {
     id: 15,
-    name: 'Beef Burger',
+    name: 'Beef Burger Deluxe',
     category: 'Burgers',
     price: 5000,
     image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600',
-    description: 'Juicy beef burger with fresh vegetables and sauce.'
+    description: 'Juicy 100% prime beef patty with crisp lettuce, ripe tomatoes, pickles, and house sauce.',
+    rating: 4.8,
+    reviewsCount: 56,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '15-20 mins'
   },
   {
     id: 16,
-    name: 'Chicken Burger',
+    name: 'Crispy Chicken Burger',
     category: 'Burgers',
     price: 4500,
     image: 'https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=600',
-    description: 'Crispy chicken burger with lettuce and mayonnaise.'
+    description: 'Buttermilk crispy fried chicken fillet with creamy mayonnaise and crisp coleslaw.',
+    rating: 4.7,
+    reviewsCount: 49,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '15-20 mins'
   },
   {
     id: 17,
-    name: 'Cheese Burger',
+    name: 'Smoky Double Cheese Burger',
     category: 'Burgers',
     price: 5500,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0SbcwC6qqgnL-AB2FDYkPVsoWAFyym_5-ncgw4EMVcvNylRaAqdC-NHTZVVYEl1jWuyflq2mMfq2ij9VVZyXKK5hpTx-osFXmx2ZA3Zw&s=10',
-    description: 'Beef burger topped with melted cheese.'
+    description: 'Double beef patties layered with melted aged cheddar, caramelized onions, and BBQ sauce.',
+    rating: 4.9,
+    reviewsCount: 71,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '20-25 mins'
   },
 
   // PIZZA
   {
     id: 18,
-    name: 'Pepperoni Pizza',
+    name: 'Pepperoni Supreme Pizza',
     category: 'Pizza',
     price: 8500,
     image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600',
-    description: 'Classic pizza topped with pepperoni and cheese.'
+    description: 'Hand-tossed artisan crust topped with zesty tomato sauce, beef pepperoni, and mozzarella.',
+    rating: 4.9,
+    reviewsCount: 94,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '25-30 mins'
   },
   {
     id: 19,
-    name: 'Chicken Pizza',
+    name: 'BBQ Chicken Pizza',
     category: 'Pizza',
     price: 9000,
     image: 'https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=600',
-    description: 'Delicious pizza with chicken and mozzarella cheese.'
+    description: 'Smoked chicken breast, red onions, tangy BBQ swirl, and melted mozzarella cheese.',
+    rating: 4.8,
+    reviewsCount: 62,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '25-30 mins'
   },
   {
     id: 20,
-    name: 'Vegetable Pizza',
+    name: 'Garden Fresh Veggie Pizza',
     category: 'Pizza',
     price: 7500,
     image: 'https://images.unsplash.com/photo-1579751626657-72bc17010498?w=600',
-    description: 'Pizza topped with fresh vegetables and cheese.'
+    description: 'Stone-baked crust loaded with bell peppers, sweetcorn, olives, red onions, and mozzarella.',
+    rating: 4.7,
+    reviewsCount: 38,
+    isSpicy: false,
+    isVeg: true,
+    isChefSpecial: false,
+    prepTime: '20-25 mins'
   },
 
   // CHICKEN
   {
     id: 21,
-    name: 'Grilled Chicken',
+    name: 'Peri-Peri Grilled Chicken',
     category: 'Chicken',
     price: 6500,
     image: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600',
-    description: 'Well-seasoned grilled chicken.'
+    description: 'Flame-grilled quarter chicken marinated in our signature fiery peri-peri herb rub.',
+    rating: 4.9,
+    reviewsCount: 88,
+    isSpicy: true,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '25-30 mins'
   },
   {
     id: 22,
-    name: 'Fried Chicken',
+    name: 'Crispy Golden Fried Chicken',
     category: 'Chicken',
     price: 5000,
     image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600',
-    description: 'Crispy fried chicken with delicious seasoning.'
+    description: 'Deep-fried chicken pieces with crunchy seasoned coating and juicy tender inside.',
+    rating: 4.8,
+    reviewsCount: 65,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '20-25 mins'
   },
   {
     id: 23,
-    name: 'Chicken Wings',
+    name: 'Spicy Glazed Chicken Wings',
     category: 'Chicken',
     price: 5500,
     image: 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600',
-    description: 'Tasty chicken wings served with special sauce.'
+    description: 'Crisp chicken wings tossed in spicy sweet chili glaze, garnished with sesame seeds.',
+    rating: 4.8,
+    reviewsCount: 54,
+    isSpicy: true,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '20-25 mins'
   },
 
   // SNACKS
   {
     id: 24,
-    name: 'Chicken Shawarma',
+    name: 'Chicken Shawarma Special',
     category: 'Snacks',
     price: 4000,
     image: 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=600',
-    description: 'Fresh chicken shawarma with vegetables and sauce.'
+    description: 'Toasted pita wrap packed with spiced chicken, creamy garlic mayo, cabbage, and sausage.',
+    rating: 4.9,
+    reviewsCount: 92,
+    isSpicy: true,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '15-20 mins'
   },
   {
     id: 25,
-    name: 'Meat Pie',
+    name: 'Gourmet Beef Meat Pie',
     category: 'Snacks',
     price: 1500,
     image: 'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=600',
-    description: 'Freshly baked Nigerian meat pie.'
+    description: 'Flaky buttery pastry filled with rich minced beef, diced potatoes, and carrots.',
+    rating: 4.7,
+    reviewsCount: 46,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '10-15 mins'
   },
   {
     id: 26,
-    name: 'Sausage Roll',
+    name: 'Classic Sausage Roll',
     category: 'Snacks',
     price: 1200,
     image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600',
-    description: 'Golden pastry filled with tasty sausage.'
+    description: 'Crispy golden baked puff pastry stuffed with savory seasoned beef sausage.',
+    rating: 4.6,
+    reviewsCount: 30,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '10-15 mins'
   },
   {
     id: 27,
-    name: 'French Fries',
+    name: 'Loaded French Fries',
     category: 'Snacks',
     price: 2500,
     image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=600',
-    description: 'Crispy golden fries served with ketchup.'
+    description: 'Crispy golden french fries sprinkled with sea salt and paprika seasoning.',
+    rating: 4.7,
+    reviewsCount: 43,
+    isSpicy: false,
+    isVeg: true,
+    isChefSpecial: false,
+    prepTime: '15-20 mins'
   },
 
   // PASTA
@@ -225,83 +380,143 @@ const foods = [
     category: 'Pasta',
     price: 5000,
     image: 'https://images.unsplash.com/photo-1556761223-4c4282c73f77?w=600',
-    description: 'Spaghetti served with rich meat sauce.'
+    description: 'Al dente Italian spaghetti simmered in rich beef ragu tomato sauce and parmesan cheese.',
+    rating: 4.8,
+    reviewsCount: 57,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '20-25 mins'
   },
   {
     id: 29,
-    name: 'Creamy Alfredo Pasta',
+    name: 'Creamy Alfredo Chicken Pasta',
     category: 'Pasta',
     price: 6000,
     image: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600',
-    description: 'Creamy pasta with chicken and parmesan.'
+    description: 'Fettuccine smothered in a rich garlic butter cream sauce with grilled chicken breast.',
+    rating: 4.9,
+    reviewsCount: 73,
+    isSpicy: false,
+    isVeg: false,
+    isChefSpecial: true,
+    prepTime: '20-25 mins'
   },
   {
     id: 30,
-    name: 'Jollof Spaghetti',
+    name: 'Spicy Jollof Spaghetti',
     category: 'Pasta',
     price: 3500,
     image: 'https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?w=600',
-    description: 'Nigerian-style spaghetti cooked in pepper sauce.'
+    description: 'Nigerian-style stir-fried spaghetti cooked with sweet peppers, onions, and beef bits.',
+    rating: 4.8,
+    reviewsCount: 61,
+    isSpicy: true,
+    isVeg: false,
+    isChefSpecial: false,
+    prepTime: '20-25 mins'
   },
 
   // DRINKS
   {
     id: 31,
-    name: 'Fresh Orange Juice',
+    name: 'Cold-Pressed Orange Juice',
     category: 'Drinks',
     price: 2000,
     image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600',
-    description: 'Refreshing freshly prepared orange juice.'
+    description: '100% freshly squeezed pure sweet Valencia oranges without added sugar.',
+    rating: 4.8,
+    reviewsCount: 40,
+    isSpicy: false,
+    isVeg: true,
+    isChefSpecial: false,
+    prepTime: '5-10 mins'
   },
   {
     id: 32,
-    name: 'Strawberry Smoothie',
+    name: 'Wild Strawberry Smoothie',
     category: 'Drinks',
     price: 3000,
     image: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=600',
-    description: 'Fresh strawberry smoothie.'
+    description: 'Blended fresh strawberries, Greek yogurt, and raw wildflower honey.',
+    rating: 4.9,
+    reviewsCount: 58,
+    isSpicy: false,
+    isVeg: true,
+    isChefSpecial: true,
+    prepTime: '5-10 mins'
   },
   {
     id: 33,
-    name: 'Chocolate Milkshake',
+    name: 'Decadent Chocolate Milkshake',
     category: 'Drinks',
     price: 3500,
     image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600',
-    description: 'Rich and creamy chocolate milkshake.'
+    description: 'Belgian cocoa, premium ice cream, and whipped cream drizzle.',
+    rating: 4.9,
+    reviewsCount: 66,
+    isSpicy: false,
+    isVeg: true,
+    isChefSpecial: false,
+    prepTime: '5-10 mins'
   },
   {
     id: 34,
-    name: 'Pineapple Juice',
+    name: 'Zesty Pineapple Ginger Juice',
     category: 'Drinks',
     price: 2000,
     image: 'https://images.unsplash.com/photo-1546173159-315724a31696?w=600',
-    description: 'Fresh and refreshing pineapple juice.'
+    description: 'Natural crushed tropical pineapple infused with fresh fiery ginger.',
+    rating: 4.7,
+    reviewsCount: 35,
+    isSpicy: false,
+    isVeg: true,
+    isChefSpecial: false,
+    prepTime: '5-10 mins'
   },
 
   // DESSERTS
   {
     id: 35,
-    name: 'Chocolate Cake',
+    name: 'Molten Chocolate Fudge Cake',
     category: 'Desserts',
     price: 3000,
     image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600',
-    description: 'Rich chocolate cake with smooth frosting.'
+    description: 'Warm chocolate sponge with a luscious molten cocoa center and dark chocolate ganache.',
+    rating: 4.9,
+    reviewsCount: 84,
+    isSpicy: false,
+    isVeg: true,
+    isChefSpecial: true,
+    prepTime: '10-15 mins'
   },
   {
     id: 36,
-    name: 'Vanilla Ice Cream',
+    name: 'Vanilla Bean Ice Cream Sundae',
     category: 'Desserts',
     price: 2500,
     image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600',
-    description: 'Creamy vanilla ice cream.'
+    description: 'Triple scoops of Madagascar vanilla bean gelato topped with caramel drizzle and nuts.',
+    rating: 4.8,
+    reviewsCount: 47,
+    isSpicy: false,
+    isVeg: true,
+    isChefSpecial: false,
+    prepTime: '5-10 mins'
   },
   {
     id: 37,
-    name: 'Pancakes',
+    name: 'Golden Stack Pancakes',
     category: 'Desserts',
     price: 3500,
     image: 'https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=600',
-    description: 'Fluffy pancakes served with syrup.'
+    description: 'Thick, fluffy buttermilk pancakes served with pure maple syrup and whipped butter.',
+    rating: 4.8,
+    reviewsCount: 52,
+    isSpicy: false,
+    isVeg: true,
+    isChefSpecial: false,
+    prepTime: '15-20 mins'
   }
 ]
 
